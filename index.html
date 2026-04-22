@@ -34,9 +34,21 @@
 
   <img src="jake_bailando.gif" alt="GIF girando">
 
-  <audio controls autoplay loop>
+  <audio id="musica" autoplay loop>
     <source src="musica.mp3" type="audio/mpeg">
     Tu navegador no soporta audio.
   </audio>
+
+  <script>
+    const audio = document.getElementById("musica");
+  
+    window.addEventListener("load", async () => {
+      try {
+        await audio.play();
+      } catch (e) {
+        console.log("Autoplay bloqueado por el navegador.");
+      }
+    });
+  </script>
 </body>
 </html>
