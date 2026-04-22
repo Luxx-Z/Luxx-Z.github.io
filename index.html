@@ -2,18 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mypage</title>
+  <title>I got bored.</title>
   <style>
     body {
       margin: 0;
       height: 100vh;
+      background: black;
+      color: white;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #111;
-      color: white;
+      flex-direction: column;
       font-family: Arial, sans-serif;
     }
 
@@ -24,29 +23,36 @@
       margin-bottom: 20px;
     }
 
-    h1 {
-      margin-bottom: 20px;
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <h1>I got bored</h1>
+  <h1>Mi GIF con música</h1>
 
-  <img src="jake_bailando.gif" alt="GIF girando">
+  <img src="gif_girando_360_lento.gif" alt="GIF">
 
-  <audio id="musica" autoplay loop>
+  <button id="playBtn">Entrar con sonido</button>
+
+  <audio id="musica" loop>
     <source src="musica.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
   </audio>
 
   <script>
     const audio = document.getElementById("musica");
-  
-    window.addEventListener("load", async () => {
+    const btn = document.getElementById("playBtn");
+
+    btn.addEventListener("click", async () => {
       try {
         await audio.play();
+        btn.style.display = "none";
       } catch (e) {
-        console.log("Autoplay bloqueado por el navegador.");
+        alert("El navegador bloqueó la reproducción automática.");
       }
     });
   </script>
